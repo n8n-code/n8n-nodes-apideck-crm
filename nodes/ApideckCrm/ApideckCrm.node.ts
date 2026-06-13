@@ -9,32 +9,32 @@ import { usersDescription } from './resources/users';
 import { activitiesDescription } from './resources/activities';
 
 export class ApideckCrm implements INodeType {
-	description: INodeTypeDescription = {
-		displayName: 'Apideck Crm',
-		name: 'N8nDevApideckCrm',
-		icon: { light: 'file:./apideck-crm.png', dark: 'file:./apideck-crm.dark.png' },
-		group: ['input'],
-		version: 1,
-		subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
-		description: 'CRM API documentation.',
-		defaults: { name: 'Apideck Crm' },
-		usableAsTool: true,
-		inputs: [NodeConnectionTypes.Main],
-		outputs: [NodeConnectionTypes.Main],
-		credentials: [
-			{
-				name: 'N8nDevApideckCrmApi',
-				required: true,
-			},
-		],
-		requestDefaults: {
-			baseURL: '={{\$credentials.url}}',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		},
-		properties: [
+        description: INodeTypeDescription = {
+                displayName: 'Apideck Crm',
+                name: 'N8nDevApideckCrm',
+                icon: { light: 'file:./apideck-crm.png', dark: 'file:./apideck-crm.dark.png' },
+                group: ['input'],
+                version: 1,
+                subtitle: '={{\$parameter["operation"] + ": " + \$parameter["resource"]}}',
+                description: 'CRM API documentation.',
+                defaults: { name: 'Apideck Crm' },
+                usableAsTool: true,
+                inputs: [NodeConnectionTypes.Main],
+                outputs: [NodeConnectionTypes.Main],
+                credentials: [
+                        {
+                                name: 'N8nDevApideckCrmApi',
+                                required: true,
+                        },
+                ],
+                requestDefaults: {
+                        baseURL: '={{\$credentials.url}}',
+                        headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json',
+                        },
+                },
+                properties: [
 		{
 			"displayName": "Resource",
 			"name": "resource",
@@ -92,6 +92,6 @@ export class ApideckCrm implements INodeType {
 		...notesDescription,
 		...usersDescription,
 		...activitiesDescription
-		],
-	};
+                ],
+        };
 }
